@@ -1,20 +1,26 @@
 def merge_the_tools(string, k):
-    segments = list(map(''.join, zip(*[iter(string)]*k)))
-    list_seg = list(map(list, segments))
+    arr = []
+    count = 0
+    s = ''
+    for i in string:
+        count += 1
+        if count%k == 0:
+            s += i
+            arr.append(s)
+            count = 0
+            s = ''
+        else:
+            s += i
     
-    unique_str = ''
-    final_seg = []
-
-    for seg in list_seg:
-        for i in seg:
-            if i not in unique_str:
-                unique_str += i
-        final_seg.append(unique_str)
-        unique_str = ''
+    # print(arr)
     
-    for i in final_seg:
-        print(i)
-
+    for each_sub in arr:
+        unique = ''
+        for letter in each_sub:
+            if letter not in unique:
+                unique += letter
+        print(unique)
+        
 if __name__ == '__main__':
     string, k = input(), int(input())
     merge_the_tools(string, k)
