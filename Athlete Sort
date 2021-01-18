@@ -21,23 +21,9 @@ if __name__ == '__main__':
         arr.append(list(map(int, input().rstrip().split())))
 
     k = int(input())
-
-    sorted_index = list(set(sorted([arr[i][k] for i in range(len(arr))])))
     
-    new_arr = []
-
-    while True:
-        if len(new_arr) == len(arr):
-            break
-
-        for check_value in sorted_index:
-            for i in range(len(arr)):
-                if arr[i][k] == check_value:
-                    new_arr.append(arr[i])
+    arr_sorted = sorted(arr, key=lambda x:x[k])
     
-    for data in new_arr:
-        print(' '.join(map(str, data)))
-
-
-
-
+    for lis in arr_sorted:
+        print(' '.join([str(i) for i in lis]))
+            
