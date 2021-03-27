@@ -14,3 +14,11 @@ def function(s):
      
 s = input()
 function(s)
+
+# Using Itertools Groupby
+
+from itertools import groupby
+s = input()
+
+for k,v in groupby(map(int, list(s))):
+    print('({}, {})'.format(len(list(v)),k), end=' ')
